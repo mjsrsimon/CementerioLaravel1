@@ -1,0 +1,10 @@
+
+SI o Si
+composer require league/csv
+
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+php artisan migrate:fresh --seed
+
+
+Quizas no haga falta
+composer require monolog/monolog

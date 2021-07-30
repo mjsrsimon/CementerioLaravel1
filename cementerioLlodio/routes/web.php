@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FallecidoController;
+use App\Http\Controllers\TitularController;
+use App\Http\Controllers\NichoController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +18,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::resource('titulars', TitularController::class);
+Route::resource('fallecidos', FallecidoController::class);
+Route::resource('nichos', NichoController::class);
+
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
